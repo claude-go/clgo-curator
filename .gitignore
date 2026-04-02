@@ -11,5 +11,6 @@ wheels/
 
 # Generated output
 output/adapters/
+output/dpo_adapters/
 output/sft_split/
 output/*.jsonl

@@ -1,6 +1,7 @@
 """Training DPO avec MLX — script principal."""
 
 import json
+from pathlib import Path
 import sys
 
 import mlx.core as mx
@@ -10,6 +11,9 @@ from mlx_lm import load
 from mlx_lm.tuner.utils import linear_to_lora_layers
 
 from .dpo_core import precompute_reference, dpo_loss_fn
+
+DEFAULT_MODEL = "Qwen/Qwen2.5-0.5B-Instruct"
+DEFAULT_OUTPUT = "output/dpo_adapters"
 
 
 def load_dpo_data(path):
@@ -22,9 +26,21 @@ def load_dpo_data(path):
     return pairs
 
 
+def save_adapters(model, output_dir):
+    """Sauvegarde les poids LoRA entraines."""
+    out = Path(output_dir)
+    out.mkdir(parents=True, exist_ok=True)
+
+    weights = dict(nn.utils.tree_flatten(model.trainable_parameters()))
+    mx.savez(str(out / "adapters.npz"), **weights)
+    print(f"[dpo] Adapteurs sauvegardes: {out / 'adapters.npz'}")
+    print(f"[dpo] {len(weights)} tenseurs LoRA")
+
+
 def run_dpo_training(
-    model_name="mlx-community/Qwen2.5-0.5B-Instruct-4bit",
+    model_name=DEFAULT_MODEL,
     data_path=None,
+    output_dir=DEFAULT_OUTPUT,
     max_steps=100,
     beta=0.1,
     lr=5e-5,
@@ -47,6 +63,7 @@ def run_dpo_training(
     )
 
     print("[dpo] Application LoRA...")
+    model.freeze()
     lora_cfg = {"rank": 8, "scale": 20.0, "dropout": 0.0}
     linear_to_lora_layers(model, num_lora_layers, lora_cfg)
     model.train()
@@ -87,19 +104,19 @@ def run_dpo_training(
             print(f"  Step {step + 1}/{max_steps} | Loss: {avg:.4f}")
             total_loss = 0.0
 
+    save_adapters(model, output_dir)
     print("[dpo] Training termine.")
 
 
 def main():
     """Point d'entree CLI."""
-    model = sys.argv[1] if len(sys.argv) > 1 else None
-    steps = int(sys.argv[2]) if len(sys.argv) > 2 else 100
+    model_name = sys.argv[1] if len(sys.argv) > 1 else None
+    max_steps = int(sys.argv[2]) if len(sys.argv) > 2 else 100
 
-    kwargs = {"max_steps": steps}
-    if model:
-        kwargs["model_name"] = model
-
-    run_dpo_training(**kwargs)
+    if model_name:
+        run_dpo_training(model_name=model_name, max_steps=max_steps)
+    else:
+        run_dpo_training(max_steps=max_steps)
 
 
 if __name__ == "__main__":
