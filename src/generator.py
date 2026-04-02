@@ -2,12 +2,9 @@
 
 import re
 
-from .config import (
-    QUESTION_TEMPLATES,
-    SECTION_QUESTION_TEMPLATES,
-    MIN_CONTENT_LENGTH,
-    MAX_ANSWER_LENGTH,
-)
+from .config import MIN_CONTENT_LENGTH, MAX_ANSWER_LENGTH
+from .questions import select_topic_questions, select_section_questions
+from .dpo_rejected import generate_rejected
 
 
 def clean_answer(text):
@@ -21,28 +18,6 @@ def clean_answer(text):
     return text
 
 
-def generate_topic_questions(topic):
-    """Genere des questions globales sur le topic."""
-    return [tmpl.format(topic=topic) for tmpl in QUESTION_TEMPLATES]
-
-
-def generate_section_questions(topic, section_header):
-    """Genere des questions specifiques a une section."""
-    return [
-        tmpl.format(section=section_header, topic=topic)
-        for tmpl in SECTION_QUESTION_TEMPLATES
-    ]
-
-
-def generate_rejected_answer(topic, section_header):
-    """Genere une reponse generique/faible pour DPO."""
-    return (
-        f"{section_header} est un concept lie a {topic}. "
-        f"C'est un sujet complexe avec plusieurs aspects importants. "
-        f"Il faudrait approfondir pour donner plus de details."
-    )
-
-
 def generate_sft_pairs(parsed_file):
     """Genere les paires SFT depuis un fichier parse."""
     pairs = []
@@ -51,16 +26,20 @@ def generate_sft_pairs(parsed_file):
 
     full_answer = clean_answer(parsed_file["full_content"])
     if len(full_answer) >= MIN_CONTENT_LENGTH:
-        question = generate_topic_questions(topic)[0]
-        pairs.append({"question": question, "answer": full_answer})
+        questions = select_topic_questions(topic, count=2)
+        for q in questions:
+            pairs.append({"question": q, "answer": full_answer})
 
     for header, body in sections:
         answer = clean_answer(body)
         if len(answer) < MIN_CONTENT_LENGTH:
             continue
 
-        questions = generate_section_questions(topic, header)
-        pairs.append({"question": questions[0], "answer": answer})
+        questions = select_section_questions(
+            topic, header, content=body, count=2,
+        )
+        for q in questions:
+            pairs.append({"question": q, "answer": answer})
 
     return pairs
 
@@ -75,13 +54,16 @@ def generate_dpo_pairs(parsed_file):
         if len(chosen) < MIN_CONTENT_LENGTH:
             continue
 
-        rejected = generate_rejected_answer(topic, header)
-        questions = generate_section_questions(topic, header)
+        rejected = generate_rejected(topic, header)
+        questions = select_section_questions(
+            topic, header, content=body, count=1,
+        )
 
-        pairs.append({
-            "prompt": questions[0],
-            "chosen": chosen,
-            "rejected": rejected,
-        })
+        for q in questions:
+            pairs.append({
+                "prompt": q,
+                "chosen": chosen,
+                "rejected": rejected,
+            })
 
     return pairs

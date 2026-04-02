@@ -5,4 +5,5 @@ description = "Add your description here"
 requires-python = ">=3.12"
 dependencies = [
     "mlx-lm>=0.31.1",
+    "mlx-tune>=0.4.15",
 ]

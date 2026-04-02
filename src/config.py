@@ -14,15 +14,3 @@ SFT_OUTPUT = "sft_pairs.jsonl"
 DPO_OUTPUT = "dpo_pairs.jsonl"
 
 SKIP_FILES = {"INDEX.md"}
-
-QUESTION_TEMPLATES = [
-    "Qu'est-ce que {topic} ?",
-    "Explique {topic} en detail.",
-    "Quels sont les points cles de {topic} ?",
-]
-
-SECTION_QUESTION_TEMPLATES = [
-    "Comment fonctionne {section} dans le contexte de {topic} ?",
-    "Quels sont les details importants sur {section} ({topic}) ?",
-    "Decris {section} en relation avec {topic}.",
-]
