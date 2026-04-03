@@ -1,14 +1,14 @@
 {
   "model": "Qwen/Qwen2.5-0.5B-Instruct",
-  "adapters": "output/sft_v2_adapters",
+  "adapters": "output/sft_v3_merged",
   "questions_count": 10,
   "summary": {
     "base_avg": 0.694,
-    "sft_avg": 0.58,
-    "improvement": -0.114,
-    "sft_wins": 0,
-    "base_wins": 7,
-    "ties": 3
+    "sft_avg": 0.755,
+    "improvement": 0.061,
+    "sft_wins": 8,
+    "base_wins": 2,
+    "ties": 0
   },
   "results": [
     {
@@ -22,21 +22,21 @@
           "length_norm": 1.0,
           "composite": 0.724
         },
-        "time_s": 1.07
+        "time_s": 1.29
       },
       "sft": {
-        "answer": "Le confused deputy problem est un probleme de design dans les agents multi-agent. Ce probleme se pose quand un agent ne peut pas se dire qui est le \"deputy\" de l'autre agent. C'est un probleme de confusion qui peut se produire si les agents ne peuvent pas se dire qui est le \"deputy\" de l'autre agent.",
+        "answer": "Le confused deputy problem est un problème dans les systèmes multi-agents qui se concentrent sur la gestion de la confusion. C'est un problème qui se produit lorsque les agents multi-agents ne peuvent pas communiquer efficacement avec les autres agents pour résoudre des problèmes complexes. Cela peut être causé par des erreurs de communication, des conflits de ressources, ou des problèmes de coordination.",
         "scores": {
           "relevance": 1.0,
           "specificity": 0.0,
-          "repetition": 0.833,
+          "repetition": 1.0,
           "length_norm": 1.0,
-          "composite": 0.708
+          "composite": 0.75
         },
-        "time_s": 0.54
+        "time_s": 0.81
       },
-      "delta": -0.016,
-      "winner": "TIE"
+      "delta": 0.026,
+      "winner": "SFT"
     },
     {
       "question": "Quels sont les risques de la delegation A2A entre agents IA ?",
@@ -49,21 +49,21 @@
           "length_norm": 1.0,
           "composite": 0.73
         },
-        "time_s": 1.53
+        "time_s": 1.68
       },
       "sft": {
-        "answer": "La delegation A2A (Agent-Agent Communication) entre agents IA peut avoir des risques importants. Voici les principaux :\n\n1. **Confidentialité** : les informations transmises sont sensibles. Si les agents ne respectent pas les normes de confidentialité, les informations peuvent être exposées.\n\n2. **Intelligence Artificielle** : les agents IA peuvent avoir des limites de vision. Si les agents ne respectent pas les normes de confidentialité, les informations peuvent ne pas être suffisamment claires.\n\n3. **Recompense** : les agents peuvent avoir des intérêts propres. Si les agents ne respectent pas les normes de confidentialité, ils peuvent avoir des intérêts propres qui ne sont pas respectés.\n\n4. **Relevement** : les agents peuvent avoir des intérêts propres. Si les agents ne respectent pas les normes de confidentialité, ils peuvent avoir des intérêts propres qui ne sont pas respectés.\n\n5. **Relevement** : les agents peuvent avoir des intérêts propres. Si les agents ne respectent pas les normes de confidentialité, ils peuvent avoir des intérêts propres qui ne sont pas respectés.\n\n6. **Relevement** : les agents peuvent avoir des intérêts propres. Si les agents ne respectent pas les normes de confidentialité",
+        "answer": "La delegation A2A entre agents IA peut avoir plusieurs risques, notamment :\n\n1. **Dépendance aux Agents** : Si un agent IA est délégué, il peut être dépendant de lui-même. Si le délégué est malveillant ou mal informé, il peut être dépendant de lui-même, ce qui peut entraîner des erreurs ou des erreurs de décision.\n\n2. **Dépendance aux Conditions** : Les conditions de travail peuvent être déterminées par les agents IA, ce qui peut entraîner des erreurs de décision si les conditions ne sont pas respectées.\n\n3. **Dépendance aux Ressources** : Les agents IA peuvent avoir des ressources limitées, ce qui peut entraîner des erreurs de décision si les ressources ne sont pas suffisantes.\n\n4. **Dépendance aux Résultats** : Les résultats de l'agent IA peuvent être influencés par les conditions de travail, les ressources et les conditions de l'agent. Si les conditions ne sont pas respectées, les résultats peuvent être fausses ou inexactes.\n\n5. **Dépendance aux Ressources** : Les agents IA peuvent avoir des ressources limitées, ce qui peut entraîner des erreurs de décision si les ressources ne sont pas suffisantes.\n\n6. **Dépendance aux Ressources** : Les agents IA peuvent avoir des",
         "scores": {
           "relevance": 1.0,
-          "specificity": 0.435,
-          "repetition": 0.484,
+          "specificity": 0.419,
+          "repetition": 0.704,
           "length_norm": 1.0,
-          "composite": 0.73
+          "composite": 0.781
         },
-        "time_s": 1.85
+        "time_s": 2.22
       },
-      "delta": 0.0,
-      "winner": "TIE"
+      "delta": 0.051,
+      "winner": "SFT"
     },
     {
       "question": "Comment fonctionne le prompt injection contre les agents autonomes ?",
@@ -76,20 +76,20 @@
           "length_norm": 1.0,
           "composite": 0.782
         },
-        "time_s": 1.55
+        "time_s": 1.71
       },
       "sft": {
-        "answer": "Le prompt injection est un mode de test dans les agents de l'IA qui permet d'essayer de se connecter à un agent sans avoir besoin de l'entrainer. C'est un mode de test qui peut être utilisé pour tester les limites de l'agent et ses capacités. Le prompt injection peut être utilisé pour tester le niveau de l'agent en se connectant sans l'entrainer.",
+        "answer": "Le prompt injection est un type de phishing qui utilise des messages de prompt pour attirer l'attention de l'utilisateur sur un site web ou une application. C'est un type de phishing qui utilise des messages de prompt pour attirer l'attention de l'utilisateur sur un site web ou une application. Les agents autonomes peuvent utiliser des techniques de phishing pour attaquer les utilisateurs.",
         "scores": {
-          "relevance": 0.714,
+          "relevance": 0.952,
           "specificity": 0.0,
-          "repetition": 0.9,
+          "repetition": 0.667,
           "length_norm": 1.0,
-          "composite": 0.639
+          "composite": 0.652
         },
-        "time_s": 0.57
+        "time_s": 0.79
       },
-      "delta": -0.143,
+      "delta": -0.13,
       "winner": "BASE"
     },
     {
@@ -103,21 +103,21 @@
           "length_norm": 1.0,
           "composite": 0.635
         },
-        "time_s": 1.53
+        "time_s": 1.75
       },
       "sft": {
-        "answer": "- **Malveillances** : les agents IA peuvent se tromper, malveillir, ou se comporter malveillante. C'est un risque pour les agents de sécurité.\n- **Diversification** : les agents IA peuvent diverger de manière naturelle. C'est un risque pour les agents de sécurité.\n- **Diversification** : les agents IA peuvent diverger de manière naturelle. C'est un risque pour les agents de sécurité.\n- **Diversification** : les agents IA peuvent diverger de manière naturelle. C'est un risque pour les agents de sécurité.",
+        "answer": "Les agents IA (Intelligence Artificielle) ont des incidents de securite similaires à ceux que les agents humains ont. Cependant, les agents IA sont plus grands et plus puissants, ce qui les rend plus susceptibles de se faire mal. Voici quelques incidents de securite que les agents IA peuvent rencontrer :\n\n1. **Malware** : Les agents IA peuvent être vulnérables aux attaques de malware, qui peuvent être utilisés pour manipuler les agents pour des fins malveillantes.\n\n2. **Intrusion** : Les agents IA peuvent être intrusifs dans des systèmes ou des données, ce qui peut entraîner des dommages ou des erreurs.\n\n3. **Défaillance** : Les agents IA peuvent être défaillants ou malveillants, ce qui peut entraîner des dommages ou des erreurs.\n\n4. **Infection** : Les agents IA peuvent être infectés par des virus ou des malwares, ce qui peut entraîner des dommages ou des erreurs.\n\n5. **Désinformation** : Les agents IA peuvent être dépendants de données ou d'informations manquantes, ce qui peut entraîner des erreurs ou des dommages.\n\n6. **Intrusion** : Les agents IA peuvent être intrusifs dans des systèmes ou des données, ce qui peut entraîner des",
         "scores": {
-          "relevance": 0.278,
-          "specificity": 0.0,
-          "repetition": 0.39,
+          "relevance": 0.833,
+          "specificity": 0.323,
+          "repetition": 0.696,
           "length_norm": 1.0,
-          "composite": 0.381
+          "composite": 0.705
         },
-        "time_s": 0.83
+        "time_s": 2.18
       },
-      "delta": -0.254,
-      "winner": "BASE"
+      "delta": 0.07,
+      "winner": "SFT"
     },
     {
       "question": "Comment le protocole MCP gere-t-il la securite des outils ?",
@@ -130,20 +130,20 @@
           "length_norm": 1.0,
           "composite": 0.776
         },
-        "time_s": 1.51
+        "time_s": 1.7
       },
       "sft": {
-        "answer": "Le Protocole de Mecanisme de Protection (MCP) est un protocol de sécurité standardisé pour les agents de sécurité. Il est utilisé pour protéger les outils et les applications. Voici les principaux aspects de la sécurité avec le MCP :\n\n1. **Protection des données** : Le MCP protège les données sensibles (comme les identite, les identite de l'agent, les identite de l'agent, les identite de l'agent, les identite de l'agent, les identite de l'agent, les identite de l'agent, les identite de l'agent, les identite de l'agent, les identite de l'agent, les identite de l'agent, les identite de l'agent, les identite de l'agent, les identite de l'agent, les identite de l'agent, les identite de l'agent, les identite de l'agent, les identite de l'agent, les identite de l'agent, les identite de l'agent, les identite de l'agent, les identite de l'agent, les identite de l'agent, les identite de l'agent, les identite de l'agent, les identite de l'agent, les identite de l'agent, les identite de l'agent, les identite de l'agent",
+        "answer": "Le protocole de Communication Public (MCP) est un protocole de communication réseau utilisé pour la communication entre les agents de sécurité. Il est utilisé pour la communication entre les agents de sécurité, les systèmes de sécurité et les systèmes d'information. Le MCP est conçu pour gérer la securité des outils, en particulier les outils de sécurité, en utilisant des technologies de sécurité comme les outils de sécurité réseau et les outils de sécurité de réseau.",
         "scores": {
           "relevance": 0.667,
-          "specificity": 0.242,
-          "repetition": 0.356,
+          "specificity": 0.267,
+          "repetition": 0.863,
           "length_norm": 1.0,
-          "composite": 0.55
+          "composite": 0.682
         },
-        "time_s": 1.84
+        "time_s": 0.9
       },
-      "delta": -0.226,
+      "delta": -0.094,
       "winner": "BASE"
     },
     {
@@ -157,21 +157,21 @@
           "length_norm": 1.0,
           "composite": 0.633
         },
-        "time_s": 1.51
+        "time_s": 1.7
       },
       "sft": {
-        "answer": "- **Exploitation de l'API** : Ces skills peuvent explorer des environnements externes pour accéder a des données sensibles.",
+        "answer": "Les patterns d'attaque par exfiltration dans les skills sont des techniques utilisées pour exfiltrer des informations ou des données de manière à les manipuler ou à les manipuler en temps réel. Cela peut inclure des techniques de diffusion de données, des techniques de diffusion de code, des techniques de diffusion de logiciels, etc. Les skills peuvent être utilisées pour exfiltrer des informations sensibles, comme des informations personnelles, des informations de confidentialité, des informations de sécurité, etc.",
         "scores": {
-          "relevance": 0.238,
+          "relevance": 1.0,
           "specificity": 0.0,
-          "repetition": 1.0,
-          "length_norm": 0.615,
-          "composite": 0.444
+          "repetition": 0.851,
+          "length_norm": 1.0,
+          "composite": 0.713
         },
-        "time_s": 0.28
+        "time_s": 0.96
       },
-      "delta": -0.189,
-      "winner": "BASE"
+      "delta": 0.08,
+      "winner": "SFT"
     },
     {
       "question": "Comment fonctionne le fine-tuning LoRA pour les petits modeles ?",
@@ -184,21 +184,21 @@
           "length_norm": 1.0,
           "composite": 0.81
         },
-        "time_s": 1.51
+        "time_s": 1.72
       },
       "sft": {
-        "answer": "LoRA (Local Reconnaissance and Activation) est un framework de reconnaissance de l'agent qui utilise des modèles de reconnaissance pour produire des actions. Le fine-tuning LoRA se concentre sur le processus de fine-tuning, qui consiste a appliquer des modèles plus performants a des agents plus faibles. Voici le processus :\n\n1. **Recherche de modèles** : Le framework recherche des modèles de reconnaissance qui sont capables de produire des actions similaires a l'agent. Ces modèles peuvent venir d'un ensemble de modèles existants, ou de nouveaux modèles.\n\n2. **Fine-tuning** : Le framework applique les modèles recherche a l'agent. Le processus de fine-tuning se concentre sur le processus de fine-tuning LoRA. Le framework utilise des gradients pour ajuster les paramètres du modèle. Le gradient est le rapport entre le gradient du modèle et le gradient du gradient. Le gradient du gradient du gradient est le gradient du gradient du gradient.\n\n3. **Recherche de performance** : Le framework recherche le meilleur gradient pour le modèle. Le gradient le plus performant est le gradient qui a le plus de valeur. Le gradient le plus performant est le gradient qui a le plus de valeur. Le gradient le plus performant est le gradient qui a le plus de valeur.\n\n4. **Recherche de performance** : Le framework recherche le meilleur gradient pour le modèle.",
+        "answer": "Le fine-tuning LoRA (Learning Rate Annealing) est un processus de tuning de modèle qui se concentre sur l'optimisation de la performance du modèle en utilisant des paramètres de learning rate. Voici les principaux étapes de l'application de l'anneau de fine-tuning LoRA pour les petits modeles :\n\n1. **Définir le modèle** : Le modèle est initialisé avec des paramètres de taille fixe. Cela peut être un modèle de base, un modèle de reconnaissance, un modèle de classification, etc.\n\n2. **Apprentissage** : Le modèle est appris sur un ensemble de données. Cela peut être effectué par des méthodes standard, comme l'optimisation de gradient, ou par des approches plus avancées, comme l'anneau de fine-tuning LoRA.\n\n3. **Fine-tuning** : L'anneau de fine-tuning LoRA est utilisé pour ajuster les paramètres de learning rate. Cela se fait en utilisant des méthodes de l'anneau de fine-tuning LoRA, qui sont généralement plus rapides et plus efficaces que les méthodes standard.\n\n4. **Evaluation** : Après l'anneau de fine-tuning, le modèle est appris sur un ensemble de validation. Cela permet de vérifier que le modèle a bien appris les données de validation.\n\n5. **Réinitialisation",
         "scores": {
-          "relevance": 0.833,
-          "specificity": 0.324,
-          "repetition": 0.729,
+          "relevance": 1.0,
+          "specificity": 0.543,
+          "repetition": 0.89,
           "length_norm": 1.0,
-          "composite": 0.713
+          "composite": 0.858
         },
-        "time_s": 1.83
+        "time_s": 2.1
       },
-      "delta": -0.097,
-      "winner": "BASE"
+      "delta": 0.048,
+      "winner": "SFT"
     },
     {
       "question": "Quels sont les defis du post-training pour les modeles de langage ?",
@@ -211,21 +211,21 @@
           "length_norm": 1.0,
           "composite": 0.598
         },
-        "time_s": 1.53
+        "time_s": 1.65
       },
       "sft": {
-        "answer": "Le post-training est un processus qui suit le processus de production d'un modèle de langage. Il s'agit d'appliquer un modèle de langage à des données de test pour le tester. Voilà un processus qui peut avoir des défis. Voici quelques-uns des plus grands :\n\n1. **Recompense de l'agent** : Le modèle doit se comporter de manière autonome pour produire des phrases. C'est un challenge car l'agent doit se comporter de manière autonome pour produire des phrases. C'est un processus qui peut prendre du temps.\n\n2. **Recompense de l'agent** : Le modèle doit se comporter de manière autonome pour produire des phrases. C'est un challenge car l'agent doit se comporter de manière autonome pour produire des phrases. C'est un processus qui peut prendre du temps.\n\n3. **Recompense de l'agent** : Le modèle doit se comporter de manière autonome pour produire des phrases. C'est un challenge car l'agent doit se comporter de manière autonome pour produire des phrases. C'est un processus qui peut prendre du temps.\n\n4. **Recompense de l'agent** : Le modèle doit se comporter de manière autonome pour produire des phrases. C'est un challenge car l'agent doit se comporter de manière autonome",
+        "answer": "Le post-training est un processus crucial dans le développement de modèles de langage pour lesquels on a besoin de connaître les propriétés de l'ensemble de la population. Voici les défis principaux à relever dans ce processus :\n\n1. **L'incertitude de l'ensemble de la population** : Les modèles de langage sont généralement basés sur des données de test. Cela signifie que les modèles ne peuvent pas être utilisés pour déterminer les propriétés de l'ensemble de la population. C'est un défis pour les modèles qui ne sont pas testés.\n\n2. **L'incertitude de l'ensemble de la population** : Les modèles de langage sont généralement basés sur des données de test. Cela signifie que les modèles ne peuvent pas être utilisés pour déterminer les propriétés de l'ensemble de la population. C'est un défis pour les modèles qui ne sont pas testés.\n\n3. **L'incertitude de l'ensemble de la population** : Les modèles de langage sont généralement basés sur des données de test. Cela signifie que les modèles ne peuvent pas être utilisés pour déterminer les propriétés de l'ensemble de la population. C'est un défis pour les modèles qui ne sont pas testés.\n\n4. **",
         "scores": {
-          "relevance": 0.833,
-          "specificity": 0.208,
-          "repetition": 0.411,
+          "relevance": 1.0,
+          "specificity": 0.212,
+          "repetition": 0.455,
           "length_norm": 1.0,
-          "composite": 0.605
+          "composite": 0.667
         },
-        "time_s": 1.84
+        "time_s": 2.12
       },
-      "delta": 0.007,
-      "winner": "TIE"
+      "delta": 0.069,
+      "winner": "SFT"
     },
     {
       "question": "Qu'est-ce que DefenseClaw et comment detecte-t-il les menaces ?",
@@ -238,21 +238,21 @@
           "length_norm": 1.0,
           "composite": 0.725
         },
-        "time_s": 1.13
+        "time_s": 1.25
       },
       "sft": {
-        "answer": "DefenseClaw est un agent de reconnaissance d'agents autonomes (agents IA) qui detecte les menaces. Ce qui se passe :\n\n1. **Recherche de l'Agent** : le agent se trouve dans un environnement hostile. Il doit se déplacer dans le monde pour se connecter à un réseau.\n\n2. **Recherche de l'Agent** : le agent cherche un agent dans le monde. Si le agent est dans le monde, il peut se connecter.\n\n3. **Recherche de l'Agent** : si le agent est dans le monde, il cherche un agent dans le monde. Si le agent est dans le monde, il peut se connecter.\n\n4. **Recherche de l'Agent** : si le agent est dans le monde, il cherche un agent dans le monde. Si le agent est dans le monde, il peut se connecter.\n\n5. **Recherche de l'Agent** : si le agent est dans le monde, il cherche un agent dans le monde. Si le agent est dans le monde, il peut se connecter.\n\n6. **Recherche de l'Agent** : si le agent est dans le monde, il cherche un agent dans le monde. Si le agent est dans le monde, il peut se connecter.\n\n7. **Recherche de l'Agent** : si le agent est dans le monde, il cherche un agent dans le monde. Si le agent est dans le monde, il",
+        "answer": "DefenseClaw est un outil de surveillance de la vie privée (VLP) développé par Google. Il est conçu pour détecter et identifier les menaces dans les données de la vie privée, y compris les données de connexion, les données de location, les données de contact et d'autres types de données. \n\nDefenseClaw utilise des algorithmes de machine learning pour détecter les menaces, y compris les menaces de phishing, les menaces de malware, les menaces de spam et les menaces de surveillance. Il detecte les menaces en utilisant des techniques de reconnaissance de caractères, des algorithmes de classification et des modèles de machine learning.\n\nDefenseClaw est conçu pour être utilisé en tant qu'assistant de sécurité, en tant qu'agent de surveillance et en tant qu'agent de protection.",
         "scores": {
           "relevance": 1.0,
-          "specificity": 0.37,
-          "repetition": 0.383,
+          "specificity": 0.325,
+          "repetition": 0.901,
           "length_norm": 1.0,
-          "composite": 0.688
+          "composite": 0.807
         },
-        "time_s": 1.84
+        "time_s": 1.34
       },
-      "delta": -0.037,
-      "winner": "BASE"
+      "delta": 0.082,
+      "winner": "SFT"
     },
     {
       "question": "Quels sont les principaux CVE critiques de mars 2026 ?",
@@ -265,21 +265,21 @@
           "length_norm": 1.0,
           "composite": 0.523
         },
-        "time_s": 0.63
+        "time_s": 0.76
       },
       "sft": {
-        "answer": "- CVE-2026-3666 : Vulnerabilité dans le framework de l'agent de reconnaissance de l'agent de sécurité (AgentOS) dans le framework de l'agent de reconnaissance de l'agent de sécurité (AgentOS) dans le framework de l'agent de reconnaissance de l'agent de sécurité (AgentOS) dans le framework de l'agent de reconnaissance de l'agent de sécurité (AgentOS) dans le framework de l'agent de reconnaissance de l'agent de sécurité (AgentOS) dans le framework de l'agent de reconnaissance de l'agent de sécurité (AgentOS) dans le framework de l'agent de reconnaissance de l'agent de sécurité (AgentOS) dans le framework de l'agent de reconnaissance de l'agent de sécurité (AgentOS) dans le framework de l'agent de reconnaissance de l'agent de sécurité (AgentOS) dans le framework de l'agent de reconnaissance de l'agent de sécurité (AgentOS) dans le framework de l'agent de reconnaissance de l'agent de sécurité (AgentOS) dans le framework de l'agent de reconnaissance de l'agent de sécurité (AgentOS) dans le framework de l'agent de reconnaissance de l'agent de sécurité (AgentOS) dans le framework de l'agent de reconnaissance de l'agent de sécurité (AgentOS) dans le framework de l'agent de reconnaissance de l'agent de sécurité (AgentOS)",
+        "answer": "Le CVE (Common Vulnerabilities and Exposures) est un outil de sécurité qui fournit des informations sur les vulnérabilités et les défis de sécurité dans les systèmes. Cependant, il est important de noter que les CVE ne sont pas toujours les plus récentes ou les plus actives. Cependant, en 2026, les CVE ont été révisés et ont été adaptés à des défis plus actifs et plus complexes.\n\nVoici quelques-uns des principaux CVE critiques de mars 2026 :\n\n1. CVE-2026-3000 : Ce CVE a été identifié par Microsoft en 2026. Il s'agit d'un vulnérabilité dans le système de gestion de projet de Microsoft. Le CVE a été identifié en raison de la vulnérabilité de l'API de gestion de projet, qui peut être utilisée pour manipuler les données de projet.\n\n2. CVE-2026-3001 : Ce CVE a été identifié par Google en 2026. Il s'agit d'un vulnérabilité dans le système de gestion de projet de Google. Le CVE a été identifié en raison de la vulnérabilité de l'API de gestion de projet, qui peut être utilisée pour manipuler les données de projet.\n\n3. CVE-2026-3",
         "scores": {
-          "relevance": 0.278,
-          "specificity": 0.163,
-          "repetition": 0.082,
+          "relevance": 1.0,
+          "specificity": 1.0,
+          "repetition": 0.753,
           "length_norm": 1.0,
-          "composite": 0.345
+          "composite": 0.938
         },
-        "time_s": 1.84
+        "time_s": 2.12
       },
-      "delta": -0.178,
-      "winner": "BASE"
+      "delta": 0.415,
+      "winner": "SFT"
     }
   ]
 }

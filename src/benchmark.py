@@ -9,7 +9,7 @@ from .bench_metrics import score_response
 from .config import OUTPUT_DIR
 
 DEFAULT_MODEL = "Qwen/Qwen2.5-0.5B-Instruct"
-SFT_ADAPTERS = "output/sft_v2_adapters"
+SFT_ADAPTERS = "output/sft_v3_merged"
 
 SYSTEM_PROMPT = (
     "Tu es un assistant specialise en IA, securite "

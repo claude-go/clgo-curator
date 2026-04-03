@@ -26,3 +26,14 @@ SCORE_WEIGHTS = {
     "completeness": 0.15,
     "table_clean": 0.20,
 }
+
+# Anti-forgetting
+REPLAY_RATIO = 0.10
+MERGE_RATIO = 0.7
+SFT_ITERS = 100
+SFT_NUM_LORA_LAYERS = 8
+SFT_LORA_RANK = 8
+SFT_LR = 1e-5
+SFT_MAX_SEQ_LENGTH = 512
+DEFAULT_MODEL = "Qwen/Qwen2.5-0.5B-Instruct"
+REPLAY_OUTPUT = "replay_pairs.jsonl"
