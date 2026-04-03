@@ -14,3 +14,15 @@ SFT_OUTPUT = "sft_pairs.jsonl"
 DPO_OUTPUT = "dpo_pairs.jsonl"
 
 SKIP_FILES = {"INDEX.md"}
+
+IDEAL_ANSWER_MIN = 100
+IDEAL_ANSWER_MAX = 1500
+MIN_QUALITY_SCORE = 0.65
+
+SCORE_WEIGHTS = {
+    "length": 0.25,
+    "overlap": 0.20,
+    "density": 0.20,
+    "completeness": 0.15,
+    "table_clean": 0.20,
+}

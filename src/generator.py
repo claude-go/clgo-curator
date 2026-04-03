@@ -9,8 +9,15 @@ from .dpo_rejected import generate_rejected
 
 def clean_answer(text):
     """Nettoie le texte pour en faire une reponse propre."""
-    text = re.sub(r"\|.*?\|", "", text)
-    text = re.sub(r"[-]{3,}", "", text)
+    lines = text.split("\n")
+    cleaned = []
+    for line in lines:
+        if re.match(r"^\s*\|.*\|", line):
+            continue
+        if re.match(r"^\s*[-:]{3,}", line):
+            continue
+        cleaned.append(line)
+    text = "\n".join(cleaned)
     text = re.sub(r"\n{3,}", "\n\n", text)
     text = text.strip()
     if len(text) > MAX_ANSWER_LENGTH:

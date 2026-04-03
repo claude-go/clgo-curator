@@ -7,6 +7,7 @@ from .config import KNOWLEDGE_DIR, EPISODES_DIR, OUTPUT_DIR, SFT_OUTPUT, DPO_OUT
 from .reader import read_knowledge_files
 from .generator import generate_sft_pairs, generate_dpo_pairs
 from .formatter import format_sft_message, format_dpo_entry, write_jsonl
+from .scorer import filter_by_quality, quality_stats
 
 
 def run_pipeline(knowledge_dir=None, output_dir=None):
@@ -36,18 +37,45 @@ def run_pipeline(knowledge_dir=None, output_dir=None):
         all_dpo.extend(dpo)
         print(f"  [episode] {f['file']}: {len(sft)} SFT, {len(dpo)} DPO")
 
+    print("\n[scorer] Filtrage qualite...")
+    sft_scored, sft_passed = filter_by_quality(all_sft, "sft")
+    dpo_scored, dpo_passed = filter_by_quality(all_dpo, "dpo")
+
+    sft_stats = quality_stats(sft_scored)
+    dpo_stats = quality_stats(dpo_scored)
+    _print_stats("SFT", sft_stats)
+    _print_stats("DPO", dpo_stats)
+
     sft_path = out / SFT_OUTPUT
     dpo_path = out / DPO_OUTPUT
 
-    sft_count = write_jsonl(all_sft, sft_path, format_sft_message)
-    dpo_count = write_jsonl(all_dpo, dpo_path, format_dpo_entry)
+    sft_count = write_jsonl(sft_passed, sft_path, format_sft_message)
+    dpo_count = write_jsonl(dpo_passed, dpo_path, format_dpo_entry)
 
-    print(f"\n[curator] Resultats:")
+    print(f"\n[curator] Resultats finaux:")
     print(f"  SFT: {sft_count} paires -> {sft_path}")
     print(f"  DPO: {dpo_count} paires -> {dpo_path}")
     print(f"  Total: {sft_count + dpo_count} paires")
 
-    return {"sft": sft_count, "dpo": dpo_count, "output_dir": str(out)}
+    return {
+        "sft": sft_count,
+        "dpo": dpo_count,
+        "output_dir": str(out),
+        "quality": {"sft": sft_stats, "dpo": dpo_stats},
+    }
+
+
+def _print_stats(label, stats):
+    """Affiche les statistiques de qualite."""
+    if stats["count"] == 0:
+        print(f"  {label}: aucune paire")
+        return
+    print(
+        f"  {label}: {stats['passed']}/{stats['count']} "
+        f"({stats['pass_rate']}%) | "
+        f"avg={stats['avg']} min={stats['min']} max={stats['max']} | "
+        f"filtrees={stats['filtered']}"
+    )
 
 
 def main():
